@@ -4,8 +4,9 @@ from api.models import Company
 
 
 class CompanySerializer(serializers.ModelSerializer):
-    company_id = serializers.ReadOnlyField(source='id')
+    total_employees_count = serializers.IntegerField()
+
     class Meta:
         model = Company
-        fields = ('id' , 'company_name' ,)
+        fields = ['id', 'company_name', 'is_deleted', 'total_employees_count']
 
